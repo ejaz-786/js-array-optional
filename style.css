@@ -1,0 +1,28 @@
+.main{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 45px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 2px solid #2a0303;
+    text-align: center;
+    padding: 8px;
+ 
+  }
+  #product-inp>div{
+    padding: 15px;
+  }
+  #prod-btn{
+    padding: 10px 24px;
+    font-size: 22px;
+  }
+  input{
+    padding: 8px 0px;
+  }
+  

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>JS ARRAY</title>
+  </head>
+  <body>
+    <div class="main">
+      <div>
+        <h3 style="text-align: center">~:JS ARRAY:~</h3>
+      </div>
+
+      <table id="mytable">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Model</th>
+            <th>Memory(GB)</th>
+            <th>Price(Rs)</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="data-row"></tr>
+        </tbody>
+      </table>
+   <hr>
+      <div style="margin-top: 25px">
+        <table id="input-table">
+          <tr>
+            <td>Company</td>
+            <td><input type="text" id="company-val" /></td>
+          </tr>
+          <tr>
+            <td>Model</td>
+            <td><input type="text" id="model-val" /></td>
+          </tr>
+          <tr>
+            <td>Memory</td>
+            <td><input type="text" id="memory-val"/></td>
+          </tr>
+          <tr>
+            <td>Price</td>
+            <td><input type="text" id="price-val"/></td>
+          </tr>
+        </table>
+        <div>
+          <button style="padding: 5px 10px; margin: 15px"
+          onclick="addData()"
+          >Add</button>
+        </div>
+      </div>
+      <hr>
+
+      <h2 style="text-align: center;">Search Field</h2>
+      <div style="display: flex;justify-content:center">
+        <select id="select-1">
+          <option value="0">Select brand</option>
+          <option value="company">company</option>
+          <option value="model">model</option>
+          <option value="memory">memory</option>
+          <option value="price">price</option>
+        </select>
+        <input type="text" placeholder="Enter detail here" id="search-inp">
+        <button
+         onclick="searchData()"
+        >Search</button>
+      </div>
+    </div>
+
+    <!-- Ends Here  -->
+    <script src="script.js"></script>
+  </body>
+</html>
