@@ -20,14 +20,22 @@
             <th>Model</th>
             <th>Memory(GB)</th>
             <th>Price(Rs)</th>
+            <th>Quantity</th>
+            <th>Ratings</th>
+            <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr class="data-row"></tr>
+          <tr>
+            <td><input type="checkbox" /></td>
+          </tr>
         </tbody>
       </table>
-   <hr>
+      <div style="float: right; padding: 15px">
+        <button onclick="deleteData()">Delete</button>
+      </div>
+
       <div style="margin-top: 25px">
         <table id="input-table">
           <tr>
@@ -40,35 +48,152 @@
           </tr>
           <tr>
             <td>Memory</td>
-            <td><input type="text" id="memory-val"/></td>
+            <td><input type="text" id="memory-val" /></td>
           </tr>
           <tr>
             <td>Price</td>
-            <td><input type="text" id="price-val"/></td>
+            <td><input type="text" id="price-val" /></td>
+          </tr>
+          <tr>
+            <td>Quantity</td>
+            <td><input type="text" id="qunatity-val" /></td>
+          </tr>
+          <tr>
+            <td>Rating</td>
+            <td><input type="text" id="rating-val" /></td>
           </tr>
         </table>
         <div>
-          <button style="padding: 5px 10px; margin: 15px"
-          onclick="addData()"
-          >Add</button>
+          <button style="padding: 5px 10px; margin: 15px" onclick="addData()">
+            Add
+          </button>
         </div>
       </div>
-      <hr>
+      <hr />
 
-      <h2 style="text-align: center;">Search Field</h2>
-      <div style="display: flex;justify-content:center">
+      <h2 style="text-align: center">Search Field</h2>
+      <div style="display: flex; justify-content: center">
         <select id="select-1">
-          <option value="0">Select brand</option>
+          <option value="-1">Select brand</option>
           <option value="company">company</option>
           <option value="model">model</option>
           <option value="memory">memory</option>
           <option value="price">price</option>
         </select>
-        <input type="text" placeholder="Enter detail here" id="search-inp">
-        <button
-         onclick="searchData()"
-        >Search</button>
+        <input type="text" placeholder="Enter detail here" id="search-inp" />
+        <button onclick="searchData()">Search</button>
       </div>
+      <br />
+      <hr />
+
+      <h2 style="text-align: center">Sorting data</h2>
+      <div style="display: flex; justify-content: center">
+        <select id="select-3" onchange="sortbyIncDec()">
+          <option value="-1">...sort by...</option>
+          <option value="asc">ascending</option>
+          <option value="desc">descending</option>
+        </select>
+        <select id="select-2" onchange="sortbyBrand()">
+          <option value="-1">...sort by...</option>
+          <option value="company">company</option>
+          <option value="model">model</option>
+          <option value="memory">memory</option>
+          <option value="price">price</option>
+        </select>
+      </div>
+      <hr />
+      <h2 style="text-align: center">
+        Add Quantity and generating billing Invoices:
+      </h2>
+
+      <div style="display: flex; justify-content: center">
+        <select id="select-prod">
+          <option value="-1">..select Products..</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Nokia">Nokia</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Motorola">Motorola</option>
+          <option value="Apple">Apple</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Enter Quantity..."
+          id="quant-inp"
+          type="number"
+        />
+        <button onclick="addQuantity()">Add</button>
+        <button onclick="generateBill()">Generate Bill</button>
+      </div>
+      <div style="margin-top: 10px; padding: 5px">
+        <h2 style="text-align: center">Bill</h2>
+        <table id="bill-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr></tr> -->
+          </tbody>
+        </table>
+      </div>
+      <hr />
+
+      <h2 style="text-align:center" >Update Quantity</h2>
+      <div style="display: flex; justify-content: center">
+        <select id="select-prods">
+          <option value="-1">..select Products..</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Nokia">Nokia</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Motorola">Motorola</option>
+          <option value="Apple">Apple</option>
+        </select>
+        <input
+          type="text"
+          placeholder="Enter Quantity..."
+          id="quant-inpt"
+          type="number"
+        />
+        <button onclick="updateQuantity()">Update</button>
+      </div>
+
+       <hr>
+       <br>
+       <h2 style="text-align: center;">Custom rating</h2>
+      <div style="display: flex; justify-content: center">
+        <select id="select-products">
+          <option value="-1">..select Products..</option>
+          <option value="Samsung">Samsung</option>
+          <option value="Nokia">Nokia</option>
+          <option value="Xiaomi">Xiaomi</option>
+          <option value="Motorola">Motorola</option>
+          <option value="Apple">Apple</option>
+        </select>
+        <select id="rating">
+          <option value="-1">select rating</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+    
+        <button onclick="changeRating()">Rate</button>
+      </div>
+
+
+
+      <hr>
+      <br>
+      <h2 style="text-align: center;"> filter by max and min range</h2>
+     <div style="display: flex; justify-content: center">
+       <input type="text" placeholder="Enter Minimum range" id="min">
+       <input type="text" placeholder="Enter Maximum range" id="max">
+       <button onclick="FilterbyRange()">Search</button>
+     </div>
     </div>
 
     <!-- Ends Here  -->
